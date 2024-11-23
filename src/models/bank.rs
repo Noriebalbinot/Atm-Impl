@@ -23,3 +23,15 @@ impl Add for Bank {
         }
     }
 }
+
+impl ToString for Bank {
+    fn to_string(&self) -> String {
+        let s = self.onehundred * 100
+            + self.fifty * 50
+            + self.twenty * 20
+            + self.ten * 10
+            + self.five * 5
+            + self.one;
+        format!("U$ {s}.00")
+    }
+}

@@ -6,12 +6,14 @@ mod models;
 
 fn main() {
     let mut machine = AtmMachine::new();
-
+    println!("Welcome to The Atm Machine");
+    println!("to use, just type one of the commands and press enter:");
+    println!("b - see the balance!");
+    println!("d - enter in deposit mode!");
+    println!("w - enter in withdraw mode!");
+    println!("once in a mode you can exit by tiping 'exit' and pressing enter");
     loop {
-        println!("Welcome to The Atm Machine");
-        println!("to use, just type one of the commands and press enter:");
-        println!("d - enter in deposit mode!");
-        println!("w - enter in withdraw mode!");
+        println!("you are now in normal mode!");
         let input: String = read!("{}");
         match input.as_str() {
             "d" => {
@@ -42,6 +44,9 @@ fn main() {
                         },
                     }
                 }
+            }
+            "b" => {
+                println!("your balance is {}", machine.balance().to_string())
             }
             _ => {
                 println!("Wrong command input!")
