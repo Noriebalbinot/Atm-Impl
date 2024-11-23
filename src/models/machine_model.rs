@@ -1,12 +1,12 @@
-use std::collections::HashMap;
+use super::bank::Bank;
 
 #[derive(Debug, Default)]
-pub struct AtmMachine<'a> {
-    bank: HashMap<&'a str, i32>,
+pub struct AtmMachine {
+    pub bank: Bank,
 }
 
-impl<'a> AtmMachine<'a> {
-    pub fn new() -> AtmMachine<'a> {
+impl AtmMachine {
+    pub fn new() -> AtmMachine {
         AtmMachine {
             ..Default::default()
         }
