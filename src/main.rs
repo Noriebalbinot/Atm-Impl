@@ -17,8 +17,8 @@ fn main() {
             "d" => {
                 println!("Welcome To Deposit Mode");
                 println!("digit number to be deposit and let");
-                println!("the algoritm decide the notes or just");
-                println!("add the note value and press enter");
+                println!("the algoritm decide the bills or just");
+                println!("add the bill value and press enter");
                 loop {
                     let inputdeposit: String = read!("{}");
                     match inputdeposit.as_str() {
