@@ -27,7 +27,7 @@ fn main() {
                         "exit" => {
                             break;
                         }
-                        _ => match inputdeposit.parse::<i32>() {
+                        _ => match inputdeposit.parse::<u32>() {
                             Ok(a) => {
                                 let bills = machine.deposit(a);
                                 println!("{a} deposited:");
@@ -47,6 +47,37 @@ fn main() {
             }
             "b" => {
                 println!("your balance is {}", machine.balance().to_string())
+            }
+            "w" => {
+                println!("Welcome To Withdraw Mode");
+                println!("digit number to be withdraw and press Enter");
+                loop {
+                    let inputwithdraw: String = read!("{}");
+                    match inputwithdraw.as_str() {
+                        "exit" => {
+                            break;
+                        }
+                        _ => match inputwithdraw.parse::<u32>() {
+                            Ok(a) => match machine.withdraw(a) {
+                                Ok(bills) => {
+                                    println!("{a} withdraw:");
+                                    println!("{} x 100 dollars bills", bills.onehundred);
+                                    println!("{} x 50 dollars bills", bills.fifty);
+                                    println!("{} x 20 dollars bills", bills.twenty);
+                                    println!("{} x 10 dollars bills", bills.ten);
+                                    println!("{} x 5 dollars bills", bills.five);
+                                    println!("{} x 1 dollar bills", bills.one);
+                                }
+                                Err(e) => {
+                                    println!("{e}")
+                                }
+                            },
+                            Err(_) => {
+                                println!("Sorry to withdraw a value you need to insert a valid integer number!")
+                            }
+                        },
+                    }
+                }
             }
             _ => {
                 println!("Wrong command input!")

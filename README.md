@@ -3,5 +3,5 @@ an barebones implementation of a ATM machine just for fun xD
 
 TODO:
 [x] deposit
-[] balance
-[] withdraw
+[x] balance
+[x] withdraw
